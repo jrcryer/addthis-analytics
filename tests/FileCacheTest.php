@@ -1,6 +1,4 @@
 <?php
-require '../bin/Cache.interface.php';
-require '../bin/FileCache.class.php';
 
 class FileCacheTest extends PHPUnit_Framework_TestCase {
     

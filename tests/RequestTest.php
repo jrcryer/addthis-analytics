@@ -1,11 +1,5 @@
 <?php
 
-require '../bin/Request.class.php';
-require '../bin/Authentication.class.php';
-require '../bin/Metric.class.php';
-require '../bin/Dimension.class.php';
-require '../bin/QueryParameter.class.php';
-
 class RequestTest extends PHPUnit_Framework_TestCase {
 
     protected $oRequest;
@@ -25,10 +19,6 @@ class RequestTest extends PHPUnit_Framework_TestCase {
     
     public function testConstruct() {
         $this->assertTrue(is_a($this->oRequest, 'Request'));
-    }
-
-    public function testFormatDefaultToJson() {
-        $this->assertEquals('json', $this->oRequest->getFormat());
     }
 
     public function testCanProduceApiUrl() {
@@ -72,15 +62,6 @@ class RequestTest extends PHPUnit_Framework_TestCase {
 
         $this->assertEquals(
             'http://api.addthis.com/analytics/1.0/pub/shares/content.json?username=anotheruser&password=anotherpass',
-            $this->oRequest->getRequest()
-        );
-    }
-
-    public function testCanChangeFormat() {
-        $this->oRequest->setFormat('csv');
-        
-        $this->assertEquals(
-            'http://api.addthis.com/analytics/1.0/pub/shares/content.csv?username=myuser&password=mypass',
             $this->oRequest->getRequest()
         );
     }

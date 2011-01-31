@@ -1,7 +1,5 @@
 <?php
 
-require '../bin/Dimension.class.php';
-
 class DimensionTest extends PHPUnit_Framework_TestCase {
 
     protected $oDim;

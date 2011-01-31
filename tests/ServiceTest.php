@@ -1,10 +1,5 @@
 <?php
 
-require_once '../bin/Service.class.php';
-require_once '../bin/Request.class.php';
-require_once '../bin/Cache.interface.php';
-require_once '../bin/FileCache.class.php';
-
 class ServiceTest extends PHPUnit_Framework_TestCase {
 
     protected $oService;

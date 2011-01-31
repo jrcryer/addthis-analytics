@@ -1,7 +1,5 @@
 <?php
 
-require '../bin/Authentication.class.php';
-
 class AuthenticationTest extends PHPUnit_Framework_TestCase {
 
     protected $oAuth;

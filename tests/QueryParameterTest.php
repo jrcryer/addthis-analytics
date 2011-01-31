@@ -1,5 +1,4 @@
 <?php
-require '../bin/QueryParameter.class.php';
 
 class QueryParameterTest extends PHPUnit_Framework_TestCase {
 

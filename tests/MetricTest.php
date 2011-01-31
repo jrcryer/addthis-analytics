@@ -1,7 +1,5 @@
 <?php
 
-require '../bin/Metric.class.php';
-
 class MetricTest extends PHPUnit_Framework_TestCase {
 
     protected $oMet;

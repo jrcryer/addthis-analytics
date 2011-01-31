@@ -6,7 +6,9 @@
  */
 class Request {
     
-    const API_URL = 'http://api.addthis.com/analytics/1.0/pub/';
+    const API_URL  = 'http://api.addthis.com/analytics/1.0/pub/';
+
+    const RESPONSE = 'json';
 
     /**
      * @var Authentication
@@ -29,32 +31,23 @@ class Request {
     protected $aQuery;
 
     /**
-     * Response format(json|csv)
-     * @var string
-     */
-    protected $format;
-
-    /**
      * Constructor
      * 
      * @param Authentication $oAuth
      * @param Metric $oMetric
      * @param Dimension $oDimension
      * @param array $aQuery
-     * @param string $format
      */
     public function  __construct(
         Authentication $oAuth,
         Metric $oMetric,
         $oDimension = null,
-        $aQuery = array(),
-        $format = 'json'
+        $aQuery = array()
     ) {
         $this->setAuthentication($oAuth);
         $this->setMetric($oMetric);
         $this->setDimension($oDimension);
         $this->setQuery($aQuery);
-        $this->setFormat($format);
     }
 
     /**
@@ -78,7 +71,7 @@ class Request {
     protected function getServicePath() {
         return sprintf(
             '%s%s%s.%s?',
-            self::API_URL, $this->getMetric(), strlen($this->getDimension()) > 0 ? "/{$this->getDimension()}" : "", $this->getFormat()
+            self::API_URL, $this->getMetric(), strlen($this->getDimension()) > 0 ? "/{$this->getDimension()}" : "", self::RESPONSE
         );
     }
 
@@ -178,22 +171,5 @@ class Request {
      */
     public function setQuery($aQuery) {
         $this->aQuery = $aQuery;
-    }
-
-    /**
-     * Returns the response format
-     * 
-     * @return string
-     */
-    public function getFormat() {
-        return $this->format;
-    }
-
-    /**
-     * Sets the response format
-     * @param string $format
-     */
-    public function setFormat($format) {
-        $this->format = $format;
     }
  }
